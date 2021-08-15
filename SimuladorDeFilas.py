@@ -5,11 +5,11 @@ from Utils import current_milli_time
 
 gerador = GeradorDeNumerosAleatorios(current_milli_time(), 100_000)
 
-fila1 = Fila(intervaloChegada=(1,2),
-            intervalorAtendimento=(3,6),
-            nServidores=1,
-            capacidade=3,
-            chegadaPrimeiro=2.0)
+fila1 = Fila(intervaloChegada=(2,4),
+            intervalorAtendimento=(3,5),
+            nServidores=2,
+            capacidade=5,
+            chegadaPrimeiro=3.0)
 
 listaDeFilas = [fila1]
 

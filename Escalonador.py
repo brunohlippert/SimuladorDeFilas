@@ -50,7 +50,7 @@ class Escalonador:
         fila = evento["fila"]
         fila.remover_da_fila(self.tempoGlobal)
 
-        if fila.get_quantidade_na_fila() >= 1:
+        if fila.get_quantidade_na_fila() >= fila.nServidores:
             numeroAleatorio = self.geradorDeAleatorios.gerar_proximo_numero_aleatorio()
             horarioDaSaida = self.__calcular_tempo_proximo_evento(fila.intervalorAtendimento, numeroAleatorio)
             self.__agendar_evento(TiposEvento.SAIDA, horarioDaSaida, fila)
