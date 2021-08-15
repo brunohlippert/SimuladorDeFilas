@@ -40,11 +40,11 @@ class Escalonador:
                 horarioDaSaida = self.__calcular_tempo_proximo_evento(fila.intervalorAtendimento, numeroAleatorio)
                 self.__agendar_evento(TiposEvento.SAIDA, horarioDaSaida, fila)
             
-            # Agenda a proxima chegada, se nao nao faz nada e termina a execucao
-            if self.geradorDeAleatorios.ha_numero_para_gerar():
-                numeroAleatorio = self.geradorDeAleatorios.gerar_proximo_numero_aleatorio()
-                horarioDaChegada = self.__calcular_tempo_proximo_evento(fila.intervaloChegada, numeroAleatorio)
-                self.__agendar_evento(TiposEvento.CHEGADA, horarioDaChegada, fila)
+        # Agenda a proxima chegada, se nao nao faz nada e termina a execucao
+        if self.geradorDeAleatorios.ha_numero_para_gerar():
+            numeroAleatorio = self.geradorDeAleatorios.gerar_proximo_numero_aleatorio()
+            horarioDaChegada = self.__calcular_tempo_proximo_evento(fila.intervaloChegada, numeroAleatorio)
+            self.__agendar_evento(TiposEvento.CHEGADA, horarioDaChegada, fila)
 
     def __gerencia_saida(self, evento):
         fila = evento["fila"]
@@ -66,8 +66,8 @@ class Escalonador:
                 indexMaisProximo = i
                 diferencaMaisProximo = diferencaEventoI
         
-        proximoEvento = self.eventos[i]
-        del self.eventos[i]
+        proximoEvento = self.eventos[indexMaisProximo]
+        del self.eventos[indexMaisProximo]
 
         return proximoEvento
 

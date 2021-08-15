@@ -56,3 +56,19 @@ class Fila:
             self.estadosDaFila[self.estadoAtual] = 0
         
         self.estadosDaFila[self.estadoAtual] += tempoPassadoNoEstadoAtual
+
+    def __str__(self):
+        totalTime = 0
+
+        for estado in self.estadosDaFila:
+            totalTime += self.estadosDaFila[estado]
+        
+        print("==========================")
+
+        for estado in self.estadosDaFila:
+            tempoEstado = self.estadosDaFila[estado]
+            print("Estado:", estado, "Tempo:", "%.4f" % tempoEstado, "Prob:", "%.2f" % ((tempoEstado / totalTime) * 100))
+        
+        print("Total", "%.4f" % totalTime, "100%")
+
+        return ""
