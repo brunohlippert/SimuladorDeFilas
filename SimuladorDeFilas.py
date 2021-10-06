@@ -5,13 +5,19 @@ from Utils import current_milli_time
 
 gerador = GeradorDeNumerosAleatorios(current_milli_time(), 100_000)
 
-fila1 = Fila(intervaloChegada=(2,4),
-            intervalorAtendimento=(3,5),
+fila1 = Fila(intervaloChegada=(2,2),
+            intervalorAtendimento=(2,5),
             nServidores=2,
-            capacidade=5,
-            chegadaPrimeiro=3.0)
+            capacidade=3,
+            chegadaPrimeiro=2.5)
 
-listaDeFilas = [fila1]
+fila2 = Fila(intervalorAtendimento=(3,5),
+            nServidores=1,
+            capacidade=3)
+
+fila1.filaDeSaida = fila2
+
+listaDeFilas = [fila1, fila2]
 
 escalonador = Escalonador(gerador, listaDeFilas)
 escalonador.inicializar_simulacao()

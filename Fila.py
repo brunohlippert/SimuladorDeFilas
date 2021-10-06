@@ -1,10 +1,5 @@
 class Fila:
-    
-    estadoAtual = 0
-    tempoUltimoEvento = 0
-    estadosDaFila = {}
-
-    def __init__(self, intervaloChegada, intervalorAtendimento, nServidores, capacidade, chegadaPrimeiro):
+    def __init__(self, intervalorAtendimento, nServidores, capacidade, chegadaPrimeiro=-1, intervaloChegada=None,):
         """
         Atributos
         ---------
@@ -25,6 +20,11 @@ class Fila:
         self.nServidores = nServidores
         self.capacidade = capacidade
         self.chegadaPrimeiro = chegadaPrimeiro
+
+        self.estadoAtual = 0
+        self.tempoUltimoEvento = 0
+        self.estadosDaFila = {}
+        self.filaDeSaida = None
     
     def adicionar_na_fila(self, tempoGlobal):
         self.__somar_tempo_passado_no_estado_atual(tempoGlobal)

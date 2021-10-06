@@ -29,8 +29,7 @@ class Escalonador:
             else:
                 self.__gerencia_saida(evento)
 
-    def __gerencia_chegada(self, evento):
-        fila = evento["fila"]
+    def __agenda_saida(self, fila):
         if fila.tem_espaco():
             fila.adicionar_na_fila(self.tempoGlobal)
 
@@ -39,6 +38,10 @@ class Escalonador:
                 numeroAleatorio = self.geradorDeAleatorios.gerar_proximo_numero_aleatorio()
                 horarioDaSaida = self.__calcular_tempo_proximo_evento(fila.intervalorAtendimento, numeroAleatorio)
                 self.__agendar_evento(TiposEvento.SAIDA, horarioDaSaida, fila)
+
+    def __gerencia_chegada(self, evento):
+        fila = evento["fila"]
+        self.__agenda_saida(fila)
             
         # Agenda a proxima chegada, se nao nao faz nada e termina a execucao
         if self.geradorDeAleatorios.ha_numero_para_gerar():
@@ -50,10 +53,15 @@ class Escalonador:
         fila = evento["fila"]
         fila.remover_da_fila(self.tempoGlobal)
 
+        # Se tem servidor livre na fila atual, agenda a proxima saida
         if fila.get_quantidade_na_fila() >= fila.nServidores:
             numeroAleatorio = self.geradorDeAleatorios.gerar_proximo_numero_aleatorio()
             horarioDaSaida = self.__calcular_tempo_proximo_evento(fila.intervalorAtendimento, numeroAleatorio)
             self.__agendar_evento(TiposEvento.SAIDA, horarioDaSaida, fila)
+
+        # Se existe uma fila em tandem, adiciona na proxima
+        if fila.filaDeSaida is not None:
+            self.__agenda_saida(fila.filaDeSaida)
     
     def __pop_proximo_evento(self):
         indexMaisProximo = 0
