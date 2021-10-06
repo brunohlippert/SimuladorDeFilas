@@ -19,6 +19,19 @@ fila = Fila(intervaloChegada=(2,4),
             chegadaPrimeiro=3.0)
 ```
 
+É possível não usar os atributos ```intervaloChegada``` e ```chegadaPrimeiro``` caso a chegada da fila seja a saída de outra, para definir este comportamento, defina a segunda fila como abaixo.
+
+```
+fila2 = Fila(intervalorAtendimento=(3,5),
+            nServidores=1,
+            capacidade=3)
+```
+
+e adicione a ```fila2``` como sendo a saída da primeira, como abaixo.
+```
+fila1.filaDeSaida = fila2
+```
+
 ### Escalonador
 O escalonador é responsável pela execução do algoritmo, para instancialo é necessário passar o gerador de números pseudo aleatórios e uma lista de filas a serem simuladas. Em seguida, chamar o método ```inicializar_simulacao```, como no exemplo a baixo.
 ```
