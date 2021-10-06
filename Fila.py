@@ -67,8 +67,8 @@ class Fila:
 
         for estado in self.estadosDaFila:
             tempoEstado = self.estadosDaFila[estado]
-            print("Estado:", estado, "Tempo:", "%.4f" % tempoEstado, "Prob:", "%.2f" % ((tempoEstado / totalTime) * 100))
+            print("Estado:", estado, "Tempo:", int(tempoEstado), "Prob:", "%.2f" % ((tempoEstado / totalTime) * 100))
         
-        print("Total", "%.4f" % totalTime, "100%")
+        print("Total", int(totalTime), "100%")
 
         return ""

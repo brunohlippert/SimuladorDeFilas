@@ -5,7 +5,7 @@ from Utils import current_milli_time
 
 gerador = GeradorDeNumerosAleatorios(current_milli_time(), 100_000)
 
-fila1 = Fila(intervaloChegada=(2,2),
+fila1 = Fila(intervaloChegada=(2,3),
             intervalorAtendimento=(2,5),
             nServidores=2,
             capacidade=3,
