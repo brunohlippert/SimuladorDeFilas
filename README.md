@@ -27,9 +27,9 @@ fila2 = Fila(intervalorAtendimento=(3,5),
             capacidade=3)
 ```
 
-e adicione a ```fila2``` como sendo a saída da primeira, como abaixo.
+e adicione a ```fila2``` como sendo a saída da primeira com probabilidade de 80%, como abaixo.
 ```
-fila1.filaDeSaida = fila2
+fila1.adicionar_fila_de_saida(fila2, 0.8)
 ```
 
 ### Escalonador

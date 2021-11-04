@@ -1,6 +1,6 @@
 import operator
 class Fila:
-    def __init__(self, intervalorAtendimento, nServidores, capacidade, chegadaPrimeiro=-1, intervaloChegada=None,):
+    def __init__(self, nome, intervalorAtendimento, nServidores, capacidade=-1, chegadaPrimeiro=-1, intervaloChegada=None,):
         """
         Atributos
         ---------
@@ -15,7 +15,7 @@ class Fila:
         chegadaPrimeiro : int
             tempo em que chega o primeiro elemento da fila, -1 caso nao
         """
-
+        self.nome = nome
         self.intervaloChegada = intervaloChegada
         self.intervalorAtendimento = intervalorAtendimento
         self.nServidores = nServidores
@@ -87,6 +87,8 @@ class Fila:
         for estado in self.estadosDaFila:
             totalTime += self.estadosDaFila[estado]
         
+        print("==========================")
+        print(self.nome)
         print("==========================")
 
         for estado in self.estadosDaFila:
