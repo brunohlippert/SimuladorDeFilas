@@ -15,7 +15,7 @@ fila2 = Fila(intervalorAtendimento=(3,5),
             nServidores=1,
             capacidade=3)
 
-fila1.filaDeSaida = fila2
+fila1.adicionar_fila_de_saida(fila2)
 
 listaDeFilas = [fila1, fila2]
 

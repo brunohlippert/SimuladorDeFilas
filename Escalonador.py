@@ -60,8 +60,11 @@ class Escalonador:
             self.__agendar_evento(TiposEvento.SAIDA, horarioDaSaida, fila)
 
         # Se existe uma fila em tandem, adiciona na proxima
-        if fila.filaDeSaida is not None:
-            self.__agenda_saida(fila.filaDeSaida)
+        if self.geradorDeAleatorios.ha_numero_para_gerar():
+            numeroAleatorio = self.geradorDeAleatorios.gerar_proximo_numero_aleatorio()
+            filaDeSaida = fila.get_saida_da_fila(numeroAleatorio)
+            if filaDeSaida is not None:
+                self.__agenda_saida(filaDeSaida)
     
     def __pop_proximo_evento(self):
         indexMaisProximo = 0

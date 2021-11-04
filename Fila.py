@@ -1,3 +1,4 @@
+import operator
 class Fila:
     def __init__(self, intervalorAtendimento, nServidores, capacidade, chegadaPrimeiro=-1, intervaloChegada=None,):
         """
@@ -24,7 +25,30 @@ class Fila:
         self.estadoAtual = 0
         self.tempoUltimoEvento = 0
         self.estadosDaFila = {}
-        self.filaDeSaida = None
+        self.saida = []
+
+    def adicionar_fila_de_saida(self, fila, prob=1):
+        """
+        Adiciona uma fila de saida com uma probabilidade, padrão 100% caso não especificado.
+        A diferença da soma das probabilidades das filas de saida eh a probabilidade de sair do sistema.
+        Ex: fila1 com 50% e fila2 com 30%, somam 80% do total de probabilidade de irem para outra fila, sendo assim,
+        20% de chance de o 'cliente' sair do sistema.
+        """
+        self.saida.append({
+            "fila": fila,
+            "prob": prob
+        })
+
+        # Deixa sempre ordenado em ordem crescente de probabilidade
+        self.saida = sorted(self.saida, key=operator.itemgetter('prob'))
+
+    def get_saida_da_fila(self, numeroAleatorio):
+        probAcumulada = 0
+        for filaSaida in self.saida:
+            probAcumulada += filaSaida["prob"]
+            if numeroAleatorio <= probAcumulada:
+                return filaSaida["fila"]
+        return None
     
     def adicionar_na_fila(self, tempoGlobal):
         self.__somar_tempo_passado_no_estado_atual(tempoGlobal)
