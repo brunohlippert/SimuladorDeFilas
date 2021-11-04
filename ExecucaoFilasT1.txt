@@ -1,0 +1,35 @@
+==========================
+F1
+==========================
+Estado: 0 Tempo: 14144 Prob: 35.11
+Estado: 1 Tempo: 20629 Prob: 51.21
+Estado: 2 Tempo: 4946 Prob: 12.28
+Estado: 3 Tempo: 530 Prob: 1.32
+Estado: 4 Tempo: 36 Prob: 0.09
+Estado: 5 Tempo: 0 Prob: 0.00
+Total 40287 100%
+
+==========================
+F2
+==========================
+Estado: 0 Tempo: 22 Prob: 0.06
+Estado: 1 Tempo: 467 Prob: 1.16
+Estado: 2 Tempo: 2652 Prob: 6.58
+Estado: 3 Tempo: 8754 Prob: 21.73
+Estado: 4 Tempo: 14989 Prob: 37.21
+Estado: 5 Tempo: 13399 Prob: 33.26
+Total 40286 100%
+
+==========================
+F3
+==========================
+Estado: 0 Tempo: 4 Prob: 0.01
+Estado: 1 Tempo: 3 Prob: 0.01
+Estado: 2 Tempo: 2 Prob: 0.01
+Estado: 3 Tempo: 7 Prob: 0.02
+Estado: 4 Tempo: 20 Prob: 0.05
+Estado: 5 Tempo: 86 Prob: 0.22
+Estado: 6 Tempo: 2864 Prob: 7.11
+Estado: 7 Tempo: 12602 Prob: 31.28
+Estado: 8 Tempo: 24691 Prob: 61.30
+Total 40282 100%
